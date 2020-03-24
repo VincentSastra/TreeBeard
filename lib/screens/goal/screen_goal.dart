@@ -11,11 +11,10 @@ class GoalPage extends StatefulWidget {
 
 class _GoalPageState extends State<GoalPage> {
 
-  static const dragThreshold = 0;
   Widget content = Scaffold(
     appBar: AppBar(),
     body: Center(
-      child: Text('Go2al Page'),
+      child: Text('Goal Page'),
     ),
   );
 
@@ -24,7 +23,7 @@ class _GoalPageState extends State<GoalPage> {
     return GestureDetector(
       child: content,
       onPanUpdate: (details) {
-        if (details.delta.dx > dragThreshold) {
+        if (details.delta.dx > dragThreshold()) {
           Navigator.pop(context);
         }
       },

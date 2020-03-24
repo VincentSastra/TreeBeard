@@ -12,7 +12,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-  static const dragThreshold = 0;
   Widget content = Scaffold(
     appBar: AppBar(),
     body: Center(
@@ -25,7 +24,7 @@ class _HomePageState extends State<HomePage> {
     return GestureDetector(
         child: content,
         onPanUpdate: (details) {
-          if (details.delta.dx < dragThreshold) {
+          if (details.delta.dx < -dragThreshold()) {
             Navigator.push(context,
                 SlideTransitionRoute(builder: (context) => GoalPage(),
                     offsetParam: Offset(1.0, 0.0)));

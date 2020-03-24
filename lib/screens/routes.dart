@@ -54,3 +54,7 @@ class SlideTransitionRoute<T> extends MaterialPageRoute<T> {
     );
   }
 }
+
+int dragThreshold() {
+  return 10;
+}
