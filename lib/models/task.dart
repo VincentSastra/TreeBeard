@@ -52,6 +52,10 @@ class TodoList extends ChangeNotifier {
   FinishList finishList = new FinishList();
   List<Task> taskList = new List<Task>();
 
+  void add(Task task) {
+    taskList.add(task);
+  }
+
   void finish(Task task) {
     task.finishTask();
     taskList.remove(task);
