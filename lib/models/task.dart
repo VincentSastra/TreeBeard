@@ -15,7 +15,7 @@ class Task {
 
   String name;
 
-  List<Achievement> achievementList;
+  List<Achievement> achievementList = new List<Achievement>();
 
   Task(String nameParam) { name = nameParam;}
 
@@ -23,6 +23,10 @@ class Task {
     for (Achievement achievement in achievementList) {
       achievement.addCount();
     }
+  }
+
+  String toString() {
+    return name;
   }
 
 }
