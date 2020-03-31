@@ -36,5 +36,5 @@ class SlideTransitionRoute<T> extends MaterialPageRoute<T> {
   }
 
   @override
-  Duration get transitionDuration => const Duration(seconds: 2);
+  Duration get transitionDuration => const Duration(milliseconds: 400);
 }

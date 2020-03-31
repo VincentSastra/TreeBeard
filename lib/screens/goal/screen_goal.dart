@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:treebeard/models/app_state.dart';
+import 'package:treebeard/screens/goal/custom_app_bar.dart';
 import 'package:treebeard/screens/home/screen_home.dart';
 import '../routes.dart';
 
@@ -27,11 +28,14 @@ class _GoalPageState extends State<GoalPage> {
       child: MultiProvider(
           providers: [
             ChangeNotifierProvider.value(value: appState.todoList),
-            ChangeNotifierProvider.value(value: appState.todoList.finishList)
           ],
           // TODO: FINISH HOW THE PAGE WILL LOOK IN THIS CHILD SECTION
-          child: Column(
-
+          child: Scaffold (
+            appBar: CustomAppBar(Icon(Icons.control_point)),
+              body: Center(
+                //Consumer<TodoList>(
+                child: Text("test") //test
+              )
           )
     ),
     );
