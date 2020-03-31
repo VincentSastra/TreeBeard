@@ -11,7 +11,6 @@ class GoalPage extends StatefulWidget {
 }
 
 class _GoalPageState extends State<GoalPage> {
-  final AppState appState = AppState();
 
   @override
   Widget build(BuildContext context) {
@@ -21,18 +20,14 @@ class _GoalPageState extends State<GoalPage> {
           Navigator.pop(context);
         }
       },
-      child: MultiProvider(
-        providers: [
-          ChangeNotifierProvider.value(value: appState.todoList),
-        ],
-        child: Scaffold(
-          appBar: CustomAppBar(Icon(Icons.control_point)),
-          body: Center(
-            child: Consumer<TodoList>(
-                builder: (BuildContext context, TodoList todoList, _) {
-                  return gridViewBuilder(context, todoList);
-            }),
-          ),
+
+      child: Scaffold(
+        appBar: CustomAppBar(Icon(Icons.control_point)),
+        body: Center(
+          child: Consumer<TodoList>(
+              builder: (BuildContext context, TodoList todoList, _) {
+                return gridViewBuilder(context, todoList);
+          }),
         ),
       ),
     );
