@@ -73,4 +73,8 @@ class TodoList extends ChangeNotifier {
     notifyListeners();
   }
 
+  TodoList value() {
+    return this;
+  }
+
 }
