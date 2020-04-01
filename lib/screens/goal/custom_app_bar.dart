@@ -31,7 +31,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     child: leftChild)),
             Expanded(
               child: Center(
-                  child: centerIcon),
+                  child: Image.asset('asset/images/acorn.png')
+              ),
             ),
             Expanded(
               child: Align(
@@ -47,4 +48,3 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => Size.fromHeight(preferredHeight);
 }
-
