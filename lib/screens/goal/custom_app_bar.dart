@@ -5,16 +5,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double preferredHeight = 60.0;
   final double preferredMargins = 20.0;
   final Widget centerIcon = Icon(Icons.landscape);
-  final Color barColor = Colors.greenAccent;
+  final Color barColor = Color(0xdf0080ff);
 
   Widget leftChild;
+  Widget rightChild;
 
-  CustomAppBar(this.leftChild) : assert(leftChild != null);
+  CustomAppBar(this.leftChild, this.rightChild) : assert(leftChild != null);
 
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.greenAccent,
+      statusBarColor: barColor,
       statusBarIconBrightness: Brightness.dark,
     ));
     return SafeArea(
@@ -33,8 +34,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   child: centerIcon),
             ),
             Expanded(
-              child: Center(),
-            )
+              child: Align(
+                  alignment: Alignment(0.5, 0),
+                  child: rightChild),
+              ),
           ],
         ),
       ),
@@ -44,3 +47,4 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => Size.fromHeight(preferredHeight);
 }
+

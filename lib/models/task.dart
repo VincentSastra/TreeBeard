@@ -58,6 +58,7 @@ class TodoList extends ChangeNotifier {
 
   void add(Task task) {
     taskList.add(task);
+    notifyListeners();
   }
 
   void finish(Task task) {
@@ -68,7 +69,7 @@ class TodoList extends ChangeNotifier {
   }
 
   void reset() {
-    taskList = finishList.reset();
+    taskList.addAll(finishList.reset());
     notifyListeners();
   }
 

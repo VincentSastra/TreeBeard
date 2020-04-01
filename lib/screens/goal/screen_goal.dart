@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:treebeard/models/app_state.dart';
+import 'task_box.dart';
 import 'package:treebeard/models/task.dart';
 import 'package:treebeard/screens/goal/custom_app_bar.dart';
 import '../routes.dart';
@@ -22,39 +22,35 @@ class _GoalPageState extends State<GoalPage> {
       },
 
       child: Scaffold(
-        appBar: CustomAppBar(Icon(Icons.control_point)),
-        body: Center(
-          child: Consumer<TodoList>(
-              builder: (BuildContext context, TodoList todoList, _) {
-                return gridViewBuilder(context, todoList);
-          }),
+        appBar: CustomAppBar(Icon(Icons.control_point), resetButton(context)),
+        body: Container(
+          color: Color(0x7fff7f00),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
+              child: Consumer<TodoList>(
+                  builder: (BuildContext context, TodoList todoList, _) {
+                    return gridViewBuilder(context, todoList);
+              }),
+            ),
+          ),
         ),
       ),
     );
   }
 }
 
-GridView gridViewBuilder(BuildContext context, TodoList todoList) {
+Widget resetButton(BuildContext context) {
+  return InkWell(
+    onTap: () => Provider.of<TodoList>(context, listen: false).reset(),
+    child: new Icon(Icons.refresh)
+  );
+}
+
+Widget gridViewBuilder(BuildContext context, TodoList todoList) {
   List<Widget> children = new List();
-  children.addAll(todoList.taskList.map((x) => todoBox(context, x)));
-  children.addAll(todoList.finishList.taskList.map((x) => finishBox(x)));
+  children.addAll(todoList.taskList.map((x) => TaskBox(x, false)));
+  children.addAll(todoList.finishList.taskList.map((x) => TaskBox(x, true)));
   return new GridView.count(crossAxisCount: 3,
       children: children);
-}
-
-Widget todoBox(BuildContext context, Task task) {
-  return InkWell(
-    onTap: () => Provider.of<TodoList>(context, listen: false).finish(task),
-    child: new Container(
-      child: Text(task.toString()),
-      color: Colors.cyan
-    ),
-  );
-}
-
-Widget finishBox(Task task) {
-  return new Container(
-    child: Text(task.toString()),
-    color: Colors.grey,
-  );
 }
