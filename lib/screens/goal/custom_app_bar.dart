@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double preferredHeight = 60.0;
   final double preferredMargins = 20.0;
-  final Widget centerIcon = Icon(Icons.landscape);
   final Color barColor = Colors.greenAccent;
 
   Widget leftChild;
@@ -30,7 +29,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     child: leftChild)),
             Expanded(
               child: Center(
-                  child: centerIcon),
+                  child: Image.asset('asset/images/acorn.png')
+              ),
             ),
             Expanded(
               child: Center(),
