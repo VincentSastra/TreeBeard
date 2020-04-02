@@ -14,6 +14,10 @@ class AppState {
     todoList.add(Task("goodnight"));
     todoList.finishList.add(Task("guccin gang"));
 
+    taskGroupList.add(TaskGroup("Energy")
+      ..add(Task("Turn off unused appliances and lights"))
+      ..add(Task("...")));
+
   }
 
 }
