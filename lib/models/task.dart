@@ -5,7 +5,7 @@ import 'achievement.dart';
 class TaskGroup {
 
   String name;
-  List<Task> taskList;
+  List<Task> taskList = new List();
 
   TaskGroup(String nameParam) { name = nameParam; }
 

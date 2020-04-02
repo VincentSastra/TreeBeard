@@ -19,20 +19,9 @@ class _TaskViewerState extends State<TaskViewer> {
     children.addAll(todoList.taskList.map((x) => TaskBox(x, false)));
     children.addAll(todoList.finishList.taskList.map((x) => TaskBox(x, true)));
 
-    return RefreshIndicator(
-      onRefresh: () async { Provider.of<TodoList>(context, listen: true).notifyListeners(); },
-      child: GridView.count(crossAxisCount: 3,
-          children: children
-      )
+    return GridView.count(crossAxisCount: 3,
+        children: children
     );
   }
 
-}
-
-Widget gridViewBuilder(BuildContext context, TodoList todoList) {
-  List<Widget> children = new List();
-  children.addAll(todoList.taskList.map((x) => TaskBox(x, false)));
-  children.addAll(todoList.finishList.taskList.map((x) => TaskBox(x, true)));
-  return new GridView.count(crossAxisCount: 3,
-      children: children);
 }
