@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:treebeard/models/task.dart';
+import 'package:treebeard/screens/goal/add_task_page.dart';
 import 'package:treebeard/screens/goal/custom_app_bar.dart';
-import 'package:treebeard/screens/goal/task_box.dart';
 import 'package:treebeard/screens/goal/task_viewer.dart';
 import '../routes.dart';
 
@@ -25,7 +26,8 @@ class _GoalPageState extends State<GoalPage> {
       },
 
       child: Scaffold(
-        appBar: CustomAppBar(Icon(Icons.control_point), resetButton(context)),
+        appBar: CustomAppBar(addTasksButton(context), null,
+            Color(0xdf0080ff)),
         body: Container(
           color: Color(0x7fff7f00),
           child: Padding(
@@ -37,6 +39,18 @@ class _GoalPageState extends State<GoalPage> {
         ),
       );
   }
+}
+
+Widget addTasksButton(BuildContext context) {
+  return IconButton(
+      icon: Icon(Icons.control_point),
+    onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => AddTaskPage()),
+        );
+    },
+  );
 }
 
 Widget resetButton(BuildContext context) {

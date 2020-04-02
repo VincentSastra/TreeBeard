@@ -9,6 +9,9 @@ class TaskGroup {
 
   TaskGroup(String nameParam) { name = nameParam; }
 
+  void add(Task task) {
+    taskList.add(task);
+  }
 }
 
 class Task {
