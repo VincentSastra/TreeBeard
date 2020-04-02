@@ -5,10 +5,13 @@ import 'achievement.dart';
 class TaskGroup {
 
   String name;
-  List<Task> taskList;
+  List<Task> taskList = new List();
 
   TaskGroup(String nameParam) { name = nameParam; }
 
+  void add(Task task) {
+    taskList.add(task);
+  }
 }
 
 class Task {
@@ -71,6 +74,10 @@ class TodoList extends ChangeNotifier {
   void reset() {
     taskList.addAll(finishList.reset());
     notifyListeners();
+  }
+
+  TodoList value() {
+    return this;
   }
 
 }
