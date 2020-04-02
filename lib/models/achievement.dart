@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AchievementGroup with ChangeNotifier {
-  List<Achievement> achievements;
+  List<Achievement> achievements = new List();
 
   void addAchievement(Achievement value) {
     achievements.add(value);

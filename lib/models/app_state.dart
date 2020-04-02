@@ -3,8 +3,8 @@ import 'task.dart';
 
 class AppState {
 
-  List<AchievementGroup> achievementGroupList;
-  List<TaskGroup> taskGroupList;
+  List<AchievementGroup> achievementGroupList = new List();
+  List<TaskGroup> taskGroupList = new List();
   TodoList todoList = TodoList();
 
   AppState() {
