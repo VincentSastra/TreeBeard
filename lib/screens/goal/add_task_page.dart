@@ -5,6 +5,7 @@ import 'package:treebeard/screens/goal/screen_goal.dart';
 import 'custom_app_bar.dart';
 
 class AddTaskPage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     //List<Widget> columnList = new List();
