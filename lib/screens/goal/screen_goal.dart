@@ -53,9 +53,3 @@ Widget addTasksButton(BuildContext context) {
   );
 }
 
-Widget resetButton(BuildContext context) {
-  return InkWell(
-    onTap: () => Provider.of<TodoList>(context, listen: false).reset(),
-    child: new Icon(Icons.refresh)
-  );
-}
