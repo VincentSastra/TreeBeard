@@ -5,7 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:treebeard/models/task.dart';
 
 class TaskBox extends StatefulWidget {
-  TaskBox(this.task, this.finished);
+  TaskBox(this.task, this.finished, Key key) :
+      super(key: key);
 
   final Task task;
   final bool finished;
