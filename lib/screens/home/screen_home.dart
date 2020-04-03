@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:treebeard/screens/goal/screen_goal.dart';
 import '../../screens/goal/screen_goal.dart';
 import '../routes.dart';
+import '../../widgets/bottom_bar.dart';
 
 class HomePage extends StatefulWidget {
 
@@ -17,6 +18,7 @@ class _HomePageState extends State<HomePage> {
     body: Center(
       child: Text('Home Page'),
     ),
+    bottomNavigationBar: bottomBar(),
   );
 
   @override
