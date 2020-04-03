@@ -42,6 +42,7 @@ flutter:
   uses-material-design: true
   assets:
     - asset/images/acorn.png
+    - asset/images/energy_icon.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
