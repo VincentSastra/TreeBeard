@@ -18,20 +18,10 @@ class _HomePageState extends State<HomePage> {
     body: Center(
       child: Text('Home Page'),
     ),
-    bottomNavigationBar: bottomBar(),
   );
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-        child: content,
-        onPanUpdate: (details) {
-          if (details.delta.dx < -dragThreshold()) {
-            Navigator.push(context,
-                SlideTransitionRoute(builder: (context) => GoalPage(),
-                    offsetParam: Offset(1.0, 0.0)));
-          }
-        },
-      );
+    return content;
   }
 }

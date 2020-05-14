@@ -45,18 +45,6 @@ class MainPage extends StatefulWidget {
 
 class MainPageState extends State<MainPage> with TickerProviderStateMixin{
 
-  final int _startingTabCount = 2;
-  List<Tab> _tabs = List<Tab>(
-
-  );
-  TabController _tabController;
-
-  @override
-  void initState() {
-    super.initState();
-    _tabController = new TabController(vsync: this, length: _tabs.length);
-  }
-
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -72,10 +60,10 @@ class MainPageState extends State<MainPage> with TickerProviderStateMixin{
           labelPadding: EdgeInsets.all(0.0),
           tabs: <Widget>[
             Tab(
-              child: (_tabController.index == 0 ? Center(child: _flare(true)) : Center(child: _flare(false)))
+              child: (Center(child: _flare()))
             ),
-              Tab(
-              child: (_tabController.index == 1 ? Center(child: _flare(true)) : Center(child: _flare(false)))
+            Tab(
+              child: (Center(child: _flare()))
             ),
           ],
         ),
@@ -84,7 +72,7 @@ class MainPageState extends State<MainPage> with TickerProviderStateMixin{
   }
 }
 
-Widget _flare(bool selected) {
+Widget _flare() {
   return Container(
     color: Color(0xdf0080ff),
   );

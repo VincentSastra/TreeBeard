@@ -13,43 +13,32 @@ class GoalPage extends StatefulWidget {
 }
 
 class _GoalPageState extends State<GoalPage> {
-
   @override
   Widget build(BuildContext context) {
     TodoList todoList = Provider.of<TodoList>(context);
 
-    return GestureDetector(
-      onPanUpdate: (details) {
-        if (details.delta.dx > dragThreshold()) {
-          Navigator.pop(context);
-        }
-      },
-
-      child: Scaffold(
-        appBar: CustomAppBar(addTasksButton(context), null,
-            Color(0x8f355a24)),
-        body: Container(
-          color: Color(0xfffaf3e3),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TaskViewer(),
-            // child: gridViewBuilder(context, todoList),
-            ),
-          ),
+    return Scaffold(
+      appBar: CustomAppBar(addTasksButton(context), null, Color(0x8f355a24)),
+      body: Container(
+        color: Color(0xfffaf3e3),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: TaskViewer(),
+          // child: gridViewBuilder(context, todoList),
         ),
-      );
+      ),
+    );
   }
 }
 
 Widget addTasksButton(BuildContext context) {
   return IconButton(
-      icon: Icon(Icons.control_point),
+    icon: Icon(Icons.control_point),
     onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => AddTaskPage()),
-        );
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => AddTaskPage()),
+      );
     },
   );
 }
-
