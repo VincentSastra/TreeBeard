@@ -1,5 +1,7 @@
+import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:treebeard/screens/goal/screen_goal.dart';
 import 'models/app_state.dart';
 import 'screens/home/screen_home.dart';
 
@@ -30,8 +32,60 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        home: HomePage(),
+        home: MainPage(),
       ),
     );
   }
+}
+
+class MainPage extends StatefulWidget {
+  @override
+  createState() => MainPageState();
+}
+
+class MainPageState extends State<MainPage> with TickerProviderStateMixin{
+
+  final int _startingTabCount = 2;
+  List<Tab> _tabs = List<Tab>(
+
+  );
+  TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = new TabController(vsync: this, length: _tabs.length);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        body: TabBarView(
+          children: <Widget>[
+            HomePage(),
+            GoalPage()
+          ],
+        ),
+        bottomNavigationBar: TabBar(
+          labelPadding: EdgeInsets.all(0.0),
+          tabs: <Widget>[
+            Tab(
+              child: (_tabController.index == 0 ? Center(child: _flare(true)) : Center(child: _flare(false)))
+            ),
+              Tab(
+              child: (_tabController.index == 1 ? Center(child: _flare(true)) : Center(child: _flare(false)))
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+Widget _flare(bool selected) {
+  return Container(
+    color: Color(0xdf0080ff),
+  );
 }
