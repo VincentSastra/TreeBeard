@@ -27,9 +27,9 @@ class _GoalPageState extends State<GoalPage> {
 
       child: Scaffold(
         appBar: CustomAppBar(addTasksButton(context), null,
-            Color(0xdf0080ff)),
+            Color(0x8f355a24)),
         body: Container(
-          color: Color(0x7fff7f00),
+          color: Color(0xfffaf3e3),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: TaskViewer(),

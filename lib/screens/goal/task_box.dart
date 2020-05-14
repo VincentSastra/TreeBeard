@@ -81,7 +81,7 @@ Widget todoBox(Task task) {
   return new Container(
     decoration: boxPadding(),
     child: Container(
-        color: Color(0xffff7f00), child: Center(child: Text(task.toString()))),
+        color: Color(0xdfff8c00), child: Center(child: Text(task.toString()))),
   );
 }
 
@@ -89,7 +89,7 @@ Widget finishBox(Task task) {
   return new Container(
       decoration: boxPadding(),
       child: Container(
-          child: Center(child: Text(task.toString())), color: Colors.grey));
+          child: Center(child: Text(task.toString())), color: Color(0xffb36200)));
 }
 
 BoxDecoration boxPadding() {
