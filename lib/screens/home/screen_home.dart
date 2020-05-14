@@ -1,18 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:treebeard/screens/goal/screen_goal.dart';
-import '../../screens/goal/screen_goal.dart';
-import '../routes.dart';
-import '../../widgets/bottom_bar.dart';
 
 class HomePage extends StatefulWidget {
-
   @override
   _HomePageState createState() => _HomePageState();
-
 }
 
 class _HomePageState extends State<HomePage> {
-
   Widget content = Scaffold(
     appBar: AppBar(),
     body: Center(
